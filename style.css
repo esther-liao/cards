@@ -1,0 +1,121 @@
+/*介面*/
+#header {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 85%;
+}
+/*介面標題*/
+#header .title {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+/*介面標題圖片*/
+#header .title img {
+  max-width: 3em;
+}
+/*介面標題文字*/
+#header .title h2 {
+  padding-left: 0.5em;
+}
+/*介面分數*/
+#header .score {
+  margin: 0;
+  color: #6c90ac;
+}
+/*介面嘗試次數*/
+#header .tried {
+  margin-top: 0;
+}
+
+/* 牌桌 */
+#cards {
+  /* 預設軸 - row */
+  display: flex;
+  /*多行-換行*/
+  flex-wrap: wrap;
+  /* 寬度和標頭一致 */
+  width: 85%;
+  /* 置中 */
+  margin: 0 auto;
+}
+/* 卡片 */
+.card {
+  /* 卡片在容器裡的排版 */
+  /* flex-basis分配寬度, flex-grow分配剩餘空間, flex-shrink 空間收縮*/
+  flex: 7% 1 1; /* 每個 item 分配容器寬度 */
+  height: 8vw; /* 依視窗的寬度等比例變化 */
+  border: 2px solid #e0e0e0; /* 卡片內部元素的排版 */
+  margin: 2px; /* 卡片邊距 */
+  box-sizing: border-box; /* 設定 box-sizing，寬高作用在border*/
+
+  /* 卡片內部元素的排版 */
+  display: flex;
+  flex-direction: column; /*軸方向 - column*/
+  justify-content: space-around; /* 元素聚集在中間，且保持均分的間隔 */
+}
+/* 卡片圖案 */
+.card img {
+  max-width: 30%; /* 最大寬度*/
+  align-self: center; /*元素對齊*/
+}
+/*卡片數字*/
+.card p {
+  margin: 3px;
+  font-size: 10px;
+}
+/*: last-child 指的是在同一個階層的同類元素中，選出最後面的元素。*/
+.card p:last-child {
+  transform: rotate(180deg); /*角度轉換*/
+}
+/*牌背*/
+.back {
+  background: url("https://assets-lighthouse.alphacamp.co/uploads/image/file/9222/ExportedContentImage_00.png");
+  background-size: cover;
+}
+/*配對成功*/
+.paired {
+  background-color: #dae0e3;
+}
+
+/*動畫*/
+.wrong {
+  /*動畫名稱*/
+  animation-name: wrongAnimation;
+  /*動畫持續時間*/
+  animation-duration: 0.2s;
+  /*動畫反覆次數*/
+  animation-iteration-count: 5;
+}
+
+/*指定動畫*/
+@keyframes wrongAnimation {
+  to {
+    border: 2px solid #ffd54f;
+  }
+}
+
+/*遊戲結束*/
+.completed {
+  position: absolute;
+  z-index: 999;
+  top: 33vh;
+  background-color: RGBA(232, 246, 254, 0.8);
+  width: 100vw;
+  padding: 50px 0;
+}
+
+.completed > p {
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  margin: 0;
+}
+
+.completed > p:first-child {
+  font-size: 3em;
+  font-weight: 700;
+  color: #758d9a;
+}
